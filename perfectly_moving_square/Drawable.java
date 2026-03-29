@@ -1,7 +1,7 @@
 package perfectly_moving_square;
 
-import javafx.scene.input.KeyEvent;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 public abstract class Drawable {
@@ -13,9 +13,9 @@ public abstract class Drawable {
     protected int width = 50;
     protected int height = 50;
     protected Color color = Color.PURPLE;
-    private final double defaultMoveLeap = 1;
-    private double moveLeap = defaultMoveLeap;
-    private double diagonalMoveLeap = (defaultMoveLeap * Math.sqrt(2)) / 2;
+    protected final double defaultMoveLeap = 1;
+    protected double moveLeap = defaultMoveLeap;
+    protected double diagonalMoveLeap = (defaultMoveLeap * Math.sqrt(2)) / 2;
     public Direction directionX = Direction.NULL;
     public Direction directionY = Direction.NULL;
     public void draw() {
@@ -37,7 +37,7 @@ public abstract class Drawable {
         directionX = _directionX;
         directionY = _directionY;
     }
-    protected void updatePosition() {
+    protected void updatePosition() throws IllegalArgumentException {
         switch(directionX) {
             case LEFT:
                 x -= moveLeap;
@@ -47,6 +47,8 @@ public abstract class Drawable {
                 break;
             case NULL:
                 break;
+            default:
+                throw new IllegalArgumentException();
         }
         switch(directionY) {
             case UP:
@@ -57,6 +59,8 @@ public abstract class Drawable {
                 break;
             case NULL:
                 break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
     protected Direction lastDirectionX = Direction.NULL;
