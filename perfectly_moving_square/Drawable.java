@@ -15,7 +15,7 @@ public abstract class Drawable {
     protected Color color = Color.PURPLE;
     private final double defaultMoveLeap = 2;
     private double moveLeap = defaultMoveLeap;
-    private double diagonalMoveLeap = defaultMoveLeap * 0.8; //TODO: velocidade diagonal NÃO é soma da vertical com a horizontal.
+    private double diagonalMoveLeap = (defaultMoveLeap * Math.sqrt(2)) / 2;
     public Direction directionX = Direction.NULL;
     public Direction directionY = Direction.NULL;
     public void draw() {
