@@ -13,7 +13,7 @@ public abstract class Drawable {
     protected int width = 50;
     protected int height = 50;
     protected Color color = Color.PURPLE;
-    private final double defaultMoveLeap = 2;
+    private final double defaultMoveLeap = 1;
     private double moveLeap = defaultMoveLeap;
     private double diagonalMoveLeap = (defaultMoveLeap * Math.sqrt(2)) / 2;
     public Direction directionX = Direction.NULL;
