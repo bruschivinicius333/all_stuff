@@ -1,0 +1,1 @@
+JavaFX doesn't provides raw and simple input, like SDL3. So, I tried a simple implementation of game movement without delay, to overcome the "dumb" functions to check pressed and check released. Basically, it's a key input check to make movement natural, like in game engines.
