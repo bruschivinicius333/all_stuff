@@ -8,7 +8,7 @@ public:
         }
     }
 
-    if(nums.empty()) {
+    if(nums.empty()) { // do NOT dereference NULL pointers
         return nums.size();
     }
 
