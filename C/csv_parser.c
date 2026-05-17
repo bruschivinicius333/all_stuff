@@ -6,26 +6,19 @@
 #define CSV_FIELD_LENGTH 100
 #define FILE_NAME "test.csv"
 
-int csv_next(FILE *filePointer, char *output, const size_t outputLength) {
+char *csv_next(FILE *filePointer) {
 
-    if(outputLength < 1) return 1;
+    static char field[CSV_FIELD_LENGTH] = {0};
 
-    if(!filePointer) {
-        output[0] = '\0';
-        return 1;
-    }
+    if(!filePointer) return 0;
 
     char retrievedChar = 0;
-    char field[CSV_FIELD_LENGTH] = {0};
-
 
     while(1) {
         retrievedChar = getc(filePointer);
 
-        if(retrievedChar == EOF) {
-            output[0] = '\0';
-            return 1;
-        }
+        if(retrievedChar == EOF) return 0;
+
         if(isalnum(retrievedChar)) {
             break;
         }
@@ -41,6 +34,5 @@ int csv_next(FILE *filePointer, char *output, const size_t outputLength) {
         *toRemove = '\0';
     }
 
-    snprintf(output, outputLength, "%s", field);
-    return 0;
+    return field;
 }
