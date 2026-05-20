@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdio.h>
+#include <stdbool.h>
+
 typedef struct {
     int age;
     char name[256];
